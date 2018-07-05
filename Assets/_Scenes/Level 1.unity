@@ -164,15 +164,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4375417899119820, guid: db529c2942ff54a4a8071d1dea394160, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.16161731
       objectReference: {fileID: 0}
     - target: {fileID: 4375417899119820, guid: db529c2942ff54a4a8071d1dea394160, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.8
+      value: 7.740968
       objectReference: {fileID: 0}
     - target: {fileID: 4375417899119820, guid: db529c2942ff54a4a8071d1dea394160, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -16.19
+      value: -26.60512
       objectReference: {fileID: 0}
     - target: {fileID: 4375417899119820, guid: db529c2942ff54a4a8071d1dea394160, type: 2}
       propertyPath: m_LocalRotation.x
@@ -193,10 +193,6 @@ Prefab:
     - target: {fileID: 4375417899119820, guid: db529c2942ff54a4a8071d1dea394160, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375417899119820, guid: db529c2942ff54a4a8071d1dea394160, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -10.186001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db529c2942ff54a4a8071d1dea394160, type: 2}
@@ -282,53 +278,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4377818264855674, guid: 886daae8826aa5546adbdb666c3ee8e4, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 35.029003
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377818264855674, guid: 886daae8826aa5546adbdb666c3ee8e4, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 46.537003
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377818264855674, guid: 886daae8826aa5546adbdb666c3ee8e4, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 4.8970003
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 886daae8826aa5546adbdb666c3ee8e4, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &787829907 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1215712116194768, guid: d9a5a2d4873e4a849881ca559244a768,
-    type: 2}
-  m_PrefabInternal: {fileID: 2024192589}
---- !u!54 &787829908
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 787829907}
-  serializedVersion: 2
-  m_Mass: 0.075
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &787829910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 787829907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41314f82554872143a756e4f43e7e606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &2024192589
+--- !u!1001 &1501336600
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -367,9 +320,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1215712116194768, guid: d9a5a2d4873e4a849881ca559244a768, type: 2}
-      propertyPath: m_Name
-      value: Rocket Ship
+    - target: {fileID: 82655900910122934, guid: d9a5a2d4873e4a849881ca559244a768,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 92470ae47dd2b89479479f44c55cfd91, type: 3}
+    - target: {fileID: 82655900910122934, guid: d9a5a2d4873e4a849881ca559244a768,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82655900910122934, guid: d9a5a2d4873e4a849881ca559244a768,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82655900910122934, guid: d9a5a2d4873e4a849881ca559244a768,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 82655900910122934, guid: d9a5a2d4873e4a849881ca559244a768,
+        type: 2}
+      propertyPath: m_Pitch
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9a5a2d4873e4a849881ca559244a768, type: 2}
