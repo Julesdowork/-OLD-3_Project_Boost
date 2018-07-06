@@ -1091,6 +1091,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 108694752848171846, guid: 886daae8826aa5546adbdb666c3ee8e4,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108694752848171846, guid: 886daae8826aa5546adbdb666c3ee8e4,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108694752848171846, guid: 886daae8826aa5546adbdb666c3ee8e4,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 886daae8826aa5546adbdb666c3ee8e4, type: 2}
   m_IsPrefabParent: 0
@@ -2194,6 +2209,16 @@ Prefab:
     - target: {fileID: 4863115103343774, guid: d9a5a2d4873e4a849881ca559244a768, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114040429146677554, guid: d9a5a2d4873e4a849881ca559244a768,
+        type: 2}
+      propertyPath: rcsThrust
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 114040429146677554, guid: d9a5a2d4873e4a849881ca559244a768,
+        type: 2}
+      propertyPath: mainThrust
+      value: 2000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9a5a2d4873e4a849881ca559244a768, type: 2}
