@@ -12,13 +12,11 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem successParticles;
     [SerializeField] ParticleSystem deathParticles;
-    bool collisionsAreDisabled = false;
 
+    bool collisionsAreDisabled = false;
+    bool isTransitioning = false;
     Rigidbody rigidBody;
     AudioSource audioSource;
-
-    enum State { Alive, Dying, Transcending }
-    State state = State.Alive;
 
 	// Use this for initialization
 	void Start()
@@ -30,7 +28,7 @@ public class Rocket : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        if (state == State.Alive)
+        if (!isTransitioning)
         {
             Thrust();
             Rotate();
@@ -45,7 +43,7 @@ public class Rocket : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive || collisionsAreDisabled)
+        if (isTransitioning || collisionsAreDisabled)
         {
             return;
         }
@@ -83,7 +81,8 @@ public class Rocket : MonoBehaviour
 
     private void Rotate()
     {
-        rigidBody.freezeRotation = true;    // take manual control of rotation
+        rigidBody.angularVelocity = Vector3.zero;   // remove rotation due to physics
+
         float rotationThisFrame = rcsThrust * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.A))
@@ -96,8 +95,6 @@ public class Rocket : MonoBehaviour
             transform.Rotate(-Vector3.forward * rotationThisFrame);
             //rigidBody.AddRelativeTorque(agility * -Vector3.forward * Time.deltaTime);
         }
-
-        rigidBody.freezeRotation = false;   // resume physics control of rotation
     }
 
     private void LoadFirstLevel()
@@ -121,7 +118,7 @@ public class Rocket : MonoBehaviour
 
     private void StartSuccessSequence()
     {
-        state = State.Transcending;
+        isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         successParticles.Play();
@@ -130,7 +127,7 @@ public class Rocket : MonoBehaviour
 
     private void StartDeathSequence()
     {
-        state = State.Dying;
+        isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(death);
         deathParticles.Play();
