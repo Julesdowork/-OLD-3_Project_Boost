@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour {
 
+    // todo fix lighting bug
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
 
@@ -28,7 +30,11 @@ public class Rocket : MonoBehaviour {
                 break;
             case "Fuel": print("Fueling up");
                 break;
+            case "Finish": print("Hit finish");
+                SceneManager.LoadScene(1);
+                break;
             default: print("Dead");
+                SceneManager.LoadScene(0);
                 break;
         }
     }
