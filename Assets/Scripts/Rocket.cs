@@ -52,9 +52,7 @@ public class Rocket : MonoBehaviour
 
         switch (collision.gameObject.tag)
         {
-            case "Friendly": print("Okay");
-                break;
-            case "Fuel": print("Fueling up");
+            case "Friendly":
                 break;
             case "Finish":
                 StartSuccessSequence();
@@ -109,7 +107,16 @@ public class Rocket : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        SceneManager.LoadScene(1);  // todo allow for more than two levels
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        int nextLevel = currentLevel + 1;
+        if (nextLevel >= SceneManager.sceneCountInBuildSettings)
+        {
+            LoadFirstLevel();
+        }
+        else
+        {
+            SceneManager.LoadScene(nextLevel);  // todo allow for more than two levels
+        }
     }
 
     private void StartSuccessSequence()
