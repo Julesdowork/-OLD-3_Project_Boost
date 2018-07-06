@@ -5,6 +5,9 @@ public class Rocket : MonoBehaviour {
     
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip death;
 
     Rigidbody rigidBody;
     AudioSource audioSource;
@@ -41,12 +44,10 @@ public class Rocket : MonoBehaviour {
             case "Fuel": print("Fueling up");
                 break;
             case "Finish":
-                state = State.Transcending;
-                Invoke("LoadNextLevel", 1f);    // parameterize time
+                StartSuccessSequence();
                 break;
             default:
-                state = State.Dying;
-                Invoke("LoadFirstLevel",1f);
+                StartDeathSequence();
                 break;
         }
     }
@@ -58,7 +59,7 @@ public class Rocket : MonoBehaviour {
             rigidBody.AddRelativeForce(Vector3.up * mainThrust);
             if (!audioSource.isPlaying)     // so it doesn't layer
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
             }
         }
         else
@@ -94,5 +95,21 @@ public class Rocket : MonoBehaviour {
     private void LoadNextLevel()
     {
         SceneManager.LoadScene(1);  // todo allow for more than two levels
+    }
+
+    private void StartSuccessSequence()
+    {
+        state = State.Transcending;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
+        Invoke("LoadNextLevel", 3f);    // parameterize time
+    }
+
+    private void StartDeathSequence()
+    {
+        state = State.Dying;
+        audioSource.Stop();
+        audioSource.PlayOneShot(death);
+        Invoke("LoadFirstLevel", 4f);
     }
 }
