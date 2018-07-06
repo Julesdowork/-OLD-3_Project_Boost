@@ -12,6 +12,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem successParticles;
     [SerializeField] ParticleSystem deathParticles;
+    bool collisionsAreDisabled = false;
 
     Rigidbody rigidBody;
     AudioSource audioSource;
@@ -34,11 +35,17 @@ public class Rocket : MonoBehaviour
             Thrust();
             Rotate();
         }
+
+        // todo only if debug on
+        if (Debug.isDebugBuild)
+        {
+            RespondToDebugKeys();
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive)
+        if (state != State.Alive || collisionsAreDisabled)
         {
             return;
         }
@@ -121,5 +128,17 @@ public class Rocket : MonoBehaviour
         audioSource.PlayOneShot(death);
         deathParticles.Play();
         Invoke("LoadFirstLevel", levelLoadDelay);
+    }
+
+    private void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionsAreDisabled = !collisionsAreDisabled; // toggle collisions
+        }
     }
 }
