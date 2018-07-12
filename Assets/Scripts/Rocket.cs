@@ -99,9 +99,7 @@ public class Rocket : MonoBehaviour
 
     private void LoadFirstLevel()
     {
-        //SceneManager.LoadScene(0);
-        int currentLevel = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentLevel);
+        SceneManager.LoadScene(0);
     }
 
     private void LoadNextLevel()

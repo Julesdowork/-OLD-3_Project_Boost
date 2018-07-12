@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] const float zOffset = -15f;
+    [SerializeField] const float zOffset = -30f;
     Rocket rocket;
 
     // Use this for initialization
