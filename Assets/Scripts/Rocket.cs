@@ -17,12 +17,14 @@ public class Rocket : MonoBehaviour
     bool isTransitioning = false;
     Rigidbody rigidBody;
     AudioSource audioSource;
+    LevelManager levelManager;
 
 	// Use this for initialization
 	void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        levelManager = FindObjectOfType<LevelManager>();
 	}
 	
 	// Update is called once per frame
@@ -97,23 +99,14 @@ public class Rocket : MonoBehaviour
         }
     }
 
-    private void LoadFirstLevel()
+    private void ReloadLevel()
     {
-        SceneManager.LoadScene(0);
+        levelManager.ReloadLevel();
     }
 
     private void LoadNextLevel()
     {
-        int currentLevel = SceneManager.GetActiveScene().buildIndex;
-        int nextLevel = currentLevel + 1;
-        if (nextLevel >= SceneManager.sceneCountInBuildSettings)
-        {
-            LoadFirstLevel();
-        }
-        else
-        {
-            SceneManager.LoadScene(nextLevel);  // todo allow for more than two levels
-        }
+        levelManager.LoadNextLevel();
     }
 
     private void StartSuccessSequence()
@@ -131,7 +124,7 @@ public class Rocket : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(death);
         deathParticles.Play();
-        Invoke("LoadFirstLevel", levelLoadDelay);
+        Invoke("ReloadLevel", levelLoadDelay);
     }
 
     private void RespondToDebugKeys()
