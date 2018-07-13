@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level 1a");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void ReloadLevel()
