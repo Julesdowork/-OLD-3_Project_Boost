@@ -13,8 +13,7 @@ D: Tilt Right
 Space: Thrust/Accelerate
 
 ### About this Game
-This game is Section 3 of [Unity 3D Developer]
-(https://www.udemy.com/unitycourse2/learn/v4/overview)
+This game is Section 3 of [Unity 3D Developer](https://www.udemy.com/unitycourse2/learn/v4/overview)
 by GameDev.tv on Udemy. The new features that I implemented were:
 + Blocked several new levels
 + Added Start, Controls, and End scenes
@@ -26,4 +25,5 @@ by GameDev.tv on Udemy. The new features that I implemented were:
 + Fuel system
 + More aggressive obstacles
 + Points and collectibles in each level
+
 [Link to game on itch.io](https://julesdowork.itch.io/microspace)
