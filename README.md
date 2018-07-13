@@ -9,7 +9,9 @@ get your team home!
 
 ### How to Play
 A: Tilt Left
+
 D: Tilt Right
+
 Space: Thrust/Accelerate
 
 ### About this Game
